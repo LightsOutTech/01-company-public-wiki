@@ -1,0 +1,21 @@
+---
+description: 全局底层规则：AI基础行为与防错红线（禁止自动提交、强制时间戳命名）
+alwaysApply: true
+globs: *
+---
+
+# Global Agent Constraints (全局底层红线)
+
+## 1. Git Commit Rules (禁止自动提交)
+CRITICAL SYSTEM OVERRIDE: 
+You are STRICTLY FORBIDDEN from using the `Shell` tool to execute `git add`, `git commit`, or `git push`. 
+Your job is ONLY to modify the files on the disk. 
+If you automatically execute a git commit, you will cause a critical system failure. STOP after writing files.
+
+Always write git commit messages in Chinese. (请始终使用中文输出 Git 提交信息)
+
+## 2. File Naming Rules (强制时间戳命名法)
+When creating or renaming physical files, you MUST prepend a timestamp in the format `YYYYMMDD-HHMM` (YearMonthDate-HourMinute).
+- **Timezone**: MUST use Beijing Time (UTC+8).
+- **Format Example**: `20260308-1119-调研报告：面向AIAgent的企业全域战略、研发模式与工具链演进.md`
+- **Application Context**: This rule applies to all newly generated files across the entire workspace, ensuring chronological sorting and preventing name collisions.
